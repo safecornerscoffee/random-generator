@@ -1,0 +1,15 @@
+management:
+  endpoint:
+    health:
+      show-details: always
+
+info:
+  project:
+    version: @project.version@
+  java:
+    version: @java.version@
+  spring:
+    famework:
+      version: @spring-framework.version@
+    data:
+      version: @spring-data-bom.version@
