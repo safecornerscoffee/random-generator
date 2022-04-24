@@ -10,11 +10,16 @@
 	</parent>
 	<groupId>com.safecornerscoffee</groupId>
 	<artifactId>random-generator</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0</version>
 	<name>random-generator</name>
 	<description>Demo project for Kubernetes</description>
 	<properties>
 		<java.version>11</java.version>
+		<image.repo>safecornerscoffee</image.repo>
+		<image.tag>${project.version}</image.tag>
+		<image.tag.extension/>
+		<docker.name>${image.repo}/random-generator:${image.tag}${image.tag.extension}</docker.name>
+		<docker.verbose>true</docker.verbose>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -34,6 +39,12 @@
 	</dependencies>
 
 	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

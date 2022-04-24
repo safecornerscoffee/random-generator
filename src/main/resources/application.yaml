@@ -3,6 +3,7 @@ management:
     health:
       show-details: always
 
+version: @image.tag@
 info:
   project:
     version: @project.version@
