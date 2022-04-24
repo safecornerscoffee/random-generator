@@ -7,10 +7,10 @@ RUN ./mvnw package
 
 FROM openjdk:11
 
-ARG JAR_FILE=target/*.jar
-
-COPY --from=builder /random-generator/${JAR_FILE} app.jar
-
 EXPOSE 8080
 
-ENTRYPOINT ["java", "-jar", "/app.jar"]
+COPY --from=builder /random-generator/target/random-generator*jar /opt/random-generator.jar
+
+WORKDIR /opt
+
+ENTRYPOINT ["java", "-jar", "random-generator.jar"]

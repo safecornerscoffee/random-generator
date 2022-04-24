@@ -1,4 +1,4 @@
-# Random-Generator
+# Random Generator
 sample application for k8s pattern.
 
 ## Docker image
