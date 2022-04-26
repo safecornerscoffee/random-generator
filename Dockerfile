@@ -1,8 +1,12 @@
 FROM openjdk:11 as builder
 
-ADD . /random-generator
 WORKDIR /random-generator
 
+ADD pom.xml mvnw mvnw.cmd /random-generator/
+ADD .mvn /random-generator/.mvn
+RUN ./mvnw verify --fail-never
+
+ADD . /random-generator
 RUN ./mvnw package
 
 FROM openjdk:11 as extractor
